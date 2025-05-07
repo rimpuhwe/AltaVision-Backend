@@ -8,6 +8,7 @@ import authRoutes from './routes/auth.js';
 import serviceRoutes from './routes/services.js';
 import paymentRoutes from './routes/payments.js';
 import dashboardRoutes from './routes/dashboard.js';
+import registerRoutes from './routes/register.js';
 
 import { notFound, errorHandler } from './middleware/errorMiddleware.js';
 import connectDB from './config/db.js';
@@ -25,10 +26,12 @@ app.use('/api/auth', authRoutes);
 app.use('/api/services', serviceRoutes);
 app.use('/api/payments', paymentRoutes);
 app.use('/api/dashboard', dashboardRoutes);
+app.use('/api/register', registerRoutes);
 
 
 app.use(notFound);
 app.use(errorHandler);
+console.log("Register Routes Loaded");
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
